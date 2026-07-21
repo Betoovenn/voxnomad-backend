@@ -101,4 +101,9 @@ app.post('/translate', upload.single('audio'), async (req, res) => {
   } catch (error) {
     console.error('Error en traducción:', error.message);
     if (req.file) fs.unlinkSync(req.file.path);
-    res.status(500).json({ error: 'Error en el motor de traducción' });
+    res.status(500).json({ error: 'Error en el motor de traducción' });}
+});
+
+app.listen(PORT, () => {
+  console.log(`VoxNomad backend v2 corriendo en puerto ${PORT}`);
+});
